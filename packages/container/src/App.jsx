@@ -5,17 +5,17 @@ import Header from "./componentes/Header";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'co'
-})
+  productionPrefix: "co",
+});
 
 export default function App() {
   return (
     <BrowserRouter>
-    <StylesProvider generateClassName={generateClassName}>
-      <div>
-        <Header />
-        <MarketingApp />
-      </div>
+      <StylesProvider generateClassName={generateClassName}>
+        <div>
+          <Header />
+          <MarketingApp />
+        </div>
       </StylesProvider>
     </BrowserRouter>
   );
