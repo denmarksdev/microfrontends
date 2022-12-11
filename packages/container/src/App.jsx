@@ -6,6 +6,7 @@ import { StylesProvider, createGenerateClassName } from "@material-ui/core";
 
 const MarketingLazy = lazy(() => import("./componentes/MarketingApp"));
 const AuthLazy = lazy(() => import("./componentes/AuthApp"));
+const DashboardLazy = lazy(() => import("./componentes/DashboardApp"));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "co",
@@ -18,7 +19,10 @@ export default function App() {
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
         <div>
-          <Header isSignedIn={isSignedIn} onSignOut={()=> setIsSignedIn(false)} />
+          <Header
+            isSignedIn={isSignedIn}
+            onSignOut={() => setIsSignedIn(false)}
+          />
           <Suspense fallback={<Progress />}>
             <Switch>
               <Route path="/auth">
@@ -29,6 +33,7 @@ export default function App() {
                   isSignedIn={isSignedIn}
                 />
               </Route>
+              <Route path="/dashboard" component={DashboardLazy} />
               <Route path="/">
                 <MarketingLazy onSignedIn={() => setIsSignedIn(false)} />
               </Route>
