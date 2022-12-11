@@ -14,6 +14,7 @@
         <span class="count purchases">534</span>
       </div>
     </div>
+    
     <div class="p-col-12 p-lg-4">
       <div class="card summary">
         <span class="title">Revenue</span>
