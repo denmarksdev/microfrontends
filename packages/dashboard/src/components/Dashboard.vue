@@ -208,7 +208,7 @@
           class="p-datatable-customers"
           :rows="5"
           style="margin-bottom: 20px"
-          :paginator="true"
+          :paginator="false"
         >
           <Column>
             <template #header> Logo </template>
