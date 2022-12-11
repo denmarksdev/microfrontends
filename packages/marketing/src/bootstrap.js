@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createMemoryHistory } from "history";
 import MyApp from "./MyApp";
 
 // Mount function to start up the app
+const mount = (el, { onNavigate }) => {
+  const history = createMemoryHistory();
 
-const mount = (el) => {
-  ReactDOM.render(<MyApp />, el);
+  history.listen(onNavigate);
+
+  ReactDOM.render(<MyApp history={history} />, el);
 };
 
-// IF are in development and in isolation
+// If are in development and in isolation
 // call mount immediately
 
 if (process.env.NODE_ENV === "development") {
